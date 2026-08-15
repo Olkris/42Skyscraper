@@ -6,17 +6,23 @@
 /*   By: abalea <abalea@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 17:50:38 by abalea            #+#    #+#             */
-/*   Updated: 2026/08/15 18:46:15 by abalea           ###   ########.fr       */
+/*   Updated: 2026/08/15 18:57:32 by abalea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 /**int	constraint_propag(*int matrix)
 {
 		
 }
 */
+
+void	print_error(void)
+{
+	write(1, "Error\n", 6);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -25,6 +31,11 @@ int	main(int argc, char *argv[])
 	int		col;
 	int		i;
 
+	if (argc != 17)
+	{
+		print_error();
+		return (1);
+	}
 	i = 1;
 	while (i < argc)
 	{
