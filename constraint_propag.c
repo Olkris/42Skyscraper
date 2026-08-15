@@ -6,7 +6,7 @@
 /*   By: abalea <abalea@learner.42.tech>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 17:50:38 by abalea            #+#    #+#             */
-/*   Updated: 2026/08/15 18:57:32 by abalea           ###   ########.fr       */
+/*   Updated: 2026/08/15 20:01:40 by abalea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ void	print_error(void)
 	write(1, "Error\n", 6);
 }
 
-int	main(int argc, char *argv[])
+int	main(int argc, char *argv[]);
+
+char	matrix_printer(void);
+
+int	matrix_creator(int array);
 {
 	char	table[4][4];
 	int		row;
@@ -45,5 +49,5 @@ int	main(int argc, char *argv[])
 		i++;
 	}
 	write(1, &table[2][2], 1);
-	/*constraint_propag(int);*/
+	constraint_propag(int);
 }
