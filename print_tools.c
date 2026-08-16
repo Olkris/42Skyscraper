@@ -35,15 +35,20 @@ void	ft_putnbr(int number)
 void	print_result(int result[16])
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (i < 16)
+	while (i < 4)
 	{
-		ft_putnbr(result[i]);
-		if (i % 4 == 3)
-			ft_putstr("\n");
-		else
-			ft_putstr(" ");
+		j = 0;
+		while (j < 4)
+		{
+			ft_putnbr(result[i * 4 + j]);
+			if (j < 3)
+				ft_putstr(" ");
+			j++;
+		}
+		ft_putstr("\n");
 		i++;
 	}
 }
