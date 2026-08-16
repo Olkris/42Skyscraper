@@ -3,14 +3,27 @@
 
 bool	checker(int matrix[4][4], int visibility[16])
 {
-	int	i = 0;
-	int col;
-	int row;
+	int	i;
+	int number;
+	int line[4];
 
+	i = 0;
 	while (i < 16)
 	{
-		col = 0;
-		matrix[]
+		number = i % 4;
+		if (i / 4 == 0)
+			line = line_reader(matrix, number, true, false);
+		else if (i / 4 == 1)
+			line = line_reader(matrix, number, true, true);
+		else if (i / 4 == 2)
+			line = line_reader(matrix, number, false, false);
+		else if (i / 4 == 3)
+			line = line_reader(matrix, number, false, true);
+		if (visibility[i] == count_visible[line])
+			print_result(matrix);
+			return (0) ;
+		else
+			return (1) ;
 	}
 }
 
@@ -81,5 +94,5 @@ int main(void)
 
 	int visibility[16] = {1, 2, 3, 4, 4, 3, 2, 1, 1, 2, 3, 4, 4, 3, 2, 1};
 
-	vis_checker(matrix, visibility);
+	checker(matrix, visibility);
 }
