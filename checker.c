@@ -37,6 +37,14 @@ int	count_visible(int line[4])
 	return (visible_count);
 }
 
+
+array[i] = atoi(argv[1][i*2])
+
+int[4]	line_reader(int matrix[4][4], int )
+{
+
+}
+
 int main(void)
 {
 	int	matrix[4][4] = {
