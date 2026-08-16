@@ -37,10 +37,35 @@ int	count_visible(int line[4])
 	return (visible_count);
 }
 
+int[4]	line_reader(int matrix[4][4], int number, bool is_col, bool is_reverse)
+{
+	int i;
+	int result[4];
 
-array[i] = atoi(argv[1][i*2])
+	i = 0;
+	while (i < 4)
+	{
+		if ((is_col == true) && (is_reverse == false))
+		{
+			result[i] = matrix[i][number];
+		}
+		else if ((is_col == false) && (is_reverse == false))
+		{
+			result[i] = matrix[number][i];
+		}
+		else if ((is_col == true) && (is_reverse == true))
+		{
+			result[i] = matrix[3 - i][number];
+		}
+		else if ((is_col == false) && (is_reverse == true))
+		{
+			result[i] = matrix[number][3 - i];
+		}
+		i++;
+	}
+	return (result);
+}
 
-int[4]	line_reader(int matrix[4][4], int )
 {
 
 }
