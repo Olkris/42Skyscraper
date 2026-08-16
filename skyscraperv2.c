@@ -8,8 +8,16 @@ int	main(int argc, char *argv[])
 		print_error();
 		return (1);
 	}
+	else
+	{
+		parse_args(argv[1])
+	}
 }
-*int	parse_args()
+
+*int	parse_args(char *arguments)
+{
+	
+}
 
 char	print_result(int *result);
 
