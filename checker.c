@@ -1,5 +1,6 @@
 
-#include <unistd.lib>
+#include <unistd.h>
+#include <stdbool.h>
 
 bool	checker(int matrix[4][4], int visibility[16])
 {
@@ -12,14 +13,14 @@ bool	checker(int matrix[4][4], int visibility[16])
 	{
 		number = i % 4;
 		if (i / 4 == 0)
-			line = line_reader(matrix, number, true, false);
+			&line = line_reader(matrix, number, true, false);
 		else if (i / 4 == 1)
-			line = line_reader(matrix, number, true, true);
+			&line = line_reader(matrix, number, true, true);
 		else if (i / 4 == 2)
-			line = line_reader(matrix, number, false, false);
+			&line = line_reader(matrix, number, false, false);
 		else if (i / 4 == 3)
-			line = line_reader(matrix, number, false, true);
-		if (visibility[i] == count_visible[line])
+			&line = line_reader( matrix, number, false, true);
+		if (visibility[i] == count_visible(line))
 			print_result(matrix);
 			return (0) ;
 		else
@@ -50,7 +51,7 @@ int	count_visible(int line[4])
 	return (visible_count);
 }
 
-int[4]	line_reader(int matrix[4][4], int number, bool is_col, bool is_reverse)
+int*	line_reader(int matrix[4][4], int number, bool is_col, bool is_reverse)
 {
 	int i;
 	int result[4];
