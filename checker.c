@@ -6,20 +6,12 @@ bool	checker(int matrix[4][4], int visibility[16])
 {
 	int	i;
 	int number;
-	int line[4];
+	int *line[4];
 
 	i = 0;
 	while (i < 16)
 	{
-		number = i % 4;
-		if (i / 4 == 0)
-			&line = line_reader(matrix, number, true, false);
-		else if (i / 4 == 1)
-			&line = line_reader(matrix, number, true, true);
-		else if (i / 4 == 2)
-			&line = line_reader(matrix, number, false, false);
-		else if (i / 4 == 3)
-			&line = line_reader( matrix, number, false, true);
+		line_reader(line, matrix, i);
 		if (visibility[i] == count_visible(line))
 			print_result(matrix);
 			return (0) ;
@@ -51,33 +43,31 @@ int	count_visible(int line[4])
 	return (visible_count);
 }
 
-int*	line_reader(int matrix[4][4], int number, bool is_col, bool is_reverse)
+void	line_reader(int matrix[4][4], int number, bool is_col, bool is_reverse)
 {
 	int i;
-	int result[4];
 
 	i = 0;
 	while (i < 4)
 	{
-		if ((is_col == true) && (is_reverse == false))
+		if (i / 4 == 0)
 		{
-			result[i] = matrix[i][number];
+			line[i] = matrix[i][number];
 		}
-		else if ((is_col == false) && (is_reverse == false))
+		else if (i / 4 == 1)
 		{
-			result[i] = matrix[number][i];
+			line[i] = matrix[number][i];
 		}
-		else if ((is_col == true) && (is_reverse == true))
+		else if (i / 4 == 2)
 		{
-			result[i] = matrix[3 - i][number];
+			line[i] = matrix[3 - i][number];
 		}
-		else if ((is_col == false) && (is_reverse == true))
+		else if (i / 4 == 3)
 		{
-			result[i] = matrix[number][3 - i];
+			line[i] = matrix[number][3 - i];
 		}
 		i++;
 	}
-	return (result);
 }
 
 {
